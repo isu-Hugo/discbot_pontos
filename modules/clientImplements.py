@@ -4,13 +4,14 @@ import os
 from dotenv import load_dotenv
 from modules import db
 
+
 # Carregamento de variaveis de ambiente
 load_dotenv()
 BOT_TOKEN = os.getenv("BOT_TOKEN")
-CANAL_PONTOS_ID = os.getenv("CANAL_PONTOS_ID")
+CANAL_PONTOS_ID = int(os.getenv("CANAL_PONTOS_ID"))
 BOT_PREFIXO = os.getenv("BOT_PREFIXO")
-CONECTADO = True
-DESCONECTADO = False
+
+
 # -----
 
 # Cria o objeto bot
@@ -29,9 +30,9 @@ def load_Bot():
 # Implementação dos eventos e comandos
 def voice_state(member, before, after):
     if before.channel is None and after.channel is not None:
-        voice_update(user_id=member.id, acao=CONECTADO)
+        voice_update(user_id=member.id, acao=True)
     elif before.channel is not None and after.channel is None:
-        voice_update(user_id=member.id, acao=DESCONECTADO)
+        voice_update(user_id=member.id, acao=False)
 
 
 # -----
@@ -51,11 +52,11 @@ async def relatorio(ctx):
 # ------------------------------------------------------
 
 # Funções auxiliares
-def voice_update(user_id:int, acao:bool):
-    if acao is CONECTADO:
+async def voice_update(user_id:int, acao:bool, message_id=None, client=None):
+    if acao is True:
         print(f"o usuario com o id {user_id} se conectou")
-        db.user_connected(id_user=user_id)
+        db.user_connected(id_user=user_id, id_message=message_id)
         
-    elif acao is DESCONECTADO:
+    elif acao is False:
         print(f"o usuario com o id {user_id} se desconectou")
-        db.user_desconected(id_user=user_id)
+        await db.user_desconected(id_user=user_id, client=client)

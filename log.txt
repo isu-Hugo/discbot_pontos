@@ -7,3 +7,9 @@
 [2025-08-24 23:19:13] no such table: temp
 [2025-08-24 23:19:18] no such table: temp
 [2025-08-24 23:19:23] Usuario desconectado sem registro de entrada [946590240800374815]
+[2025-08-25 14:44:10] Usuario desconectado sem registro de entrada [946590240800374815]
+[2025-08-25 14:44:49] Usuario desconectado sem registro de entrada [946590240800374815]
+[2025-08-25 15:11:02] row value misused
+[2025-08-25 15:11:07] row value misused
+[2025-08-25 15:11:12] row value misused
+[2025-08-25 15:11:17] Usuario desconectado sem registro de entrada [946590240800374815]
