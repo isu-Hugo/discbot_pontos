@@ -1,0 +1,9 @@
+[2025-08-24 22:21:42.770371] abriu
+[2025-08-24 22:21:42.770435] fechou
+[2025-08-24 23:18:50] no such table: temp
+[2025-08-24 23:18:55] no such table: temp
+[2025-08-24 23:19:00] no such table: temp
+[2025-08-24 23:19:08] no such table: temp
+[2025-08-24 23:19:13] no such table: temp
+[2025-08-24 23:19:18] no such table: temp
+[2025-08-24 23:19:23] Usuario desconectado sem registro de entrada [946590240800374815]

@@ -1,4 +1,5 @@
 from modules import clientImplements
+from modules.log import log
 
 client = clientImplements.load_Bot()
 
@@ -13,6 +14,10 @@ async def on_ready():
 async def on_voice_state_update(member, before, after):
     clientImplements.voice_state(member, before, after)
 # ------------------------------------------------------
+
+
+
+
 
 # === Comandos ===
 @client.command()
@@ -30,7 +35,6 @@ async def relatorio(ctx):
 
 
 # ------------------------------------------------------
-
 
 
 
