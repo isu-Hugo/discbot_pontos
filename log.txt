@@ -13,3 +13,12 @@
 [2025-08-25 15:11:07] row value misused
 [2025-08-25 15:11:12] row value misused
 [2025-08-25 15:11:17] Usuario desconectado sem registro de entrada [946590240800374815]
+[2025-08-26 15:02:44] Usuario desconectado sem registro de entrada [946590240800374815]
+[2025-08-26 15:04:12] Usuario desconectado sem registro de entrada [946590240800374815]
+[2025-08-26 15:06:07] Usuario desconectado sem registro de entrada [946590240800374815]
+[2025-08-26 15:08:18] Usuario desconectado sem registro de entrada [946590240800374815]
+[2025-08-26 15:08:50] Usuario desconectado sem registro de entrada [423547455263604736]
+[2025-08-26 15:13:14] Usuario desconectado sem registro de entrada [423547455263604736]
+[2025-08-26 15:24:16] Usuario desconectado sem registro de entrada [946590240800374815]
+[2025-08-26 15:24:28] Usuario desconectado sem registro de entrada [423547455263604736]
+[2025-08-26 15:28:14] Usuario desconectado sem registro de entrada [1135558026066137229]

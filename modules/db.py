@@ -48,7 +48,7 @@ def user_connected(id_user, id_message):
     secure_execute(query=QUERY, values=[id_user, entrada, id_message])
     
 async def user_desconected(id_user, client):
-    
+    send_message = False
     QUERY_SELECT = "SELECT entrada, id_message FROM temp WHERE id_usuario=?"
     QUERY_DELETE = "DELETE FROM temp WHERE id_usuario=?"
     QUERY_INSERT = "INSERT INTO calls (id_usuario, data_entrada, hora_entrada, data_saida, hora_saida, permanencia) VALUES (?,?,?,?,?,?)"
@@ -66,6 +66,7 @@ async def user_desconected(id_user, client):
             msg = await canal_texto.fetch_message(req[0][1])
             await msg.delete()            
         else:
+            send_message = True
             values = [
                 id_user,
                 entrada.date().strftime('%Y-%m-%d'),
@@ -80,4 +81,4 @@ async def user_desconected(id_user, client):
         secure_execute(QUERY_DELETE, values=[id_user])
     else:
         log(f"Usuario desconectado sem registro de entrada [{id_user}]")
-
+    return send_message

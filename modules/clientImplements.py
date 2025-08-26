@@ -10,6 +10,7 @@ load_dotenv()
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 CANAL_PONTOS_ID = int(os.getenv("CANAL_PONTOS_ID"))
 BOT_PREFIXO = os.getenv("BOT_PREFIXO")
+WEBHOOK_URL = os.getenv("WEBHOOK_URL")
 
 
 # -----
@@ -59,4 +60,4 @@ async def voice_update(user_id:int, acao:bool, message_id=None, client=None):
         
     elif acao is False:
         print(f"o usuario com o id {user_id} se desconectou")
-        await db.user_desconected(id_user=user_id, client=client)
+        return await db.user_desconected(id_user=user_id, client=client)
