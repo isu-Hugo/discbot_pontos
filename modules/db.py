@@ -63,6 +63,7 @@ async def user_desconected(id_user, client):
         if permanencia<60:
             from modules.clientImplements import CANAL_PONTOS_ID
             canal_texto = client.get_channel(CANAL_PONTOS_ID)
+            print(req[0][1])
             msg = await canal_texto.fetch_message(req[0][1])
             await msg.delete()            
         else:
