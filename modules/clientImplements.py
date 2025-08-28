@@ -39,11 +39,16 @@ def voice_state(member, before, after):
 # -----
 
 async def oi(ctx):
-    await ctx.send(f"""Olá {ctx.author}
-                    digo {ctx.author.display_name}
-                    você disse em {ctx.channel}do servidor {ctx.guild}
-                    "{ctx.message.content}"
-                    com o id {ctx.author.id}""")
+    # await ctx.send(f"""Olá {ctx.author}
+    #                 digo {ctx.author.display_name}
+    #                 você disse em {ctx.channel}do servidor {ctx.guild}
+    #                 "{ctx.message.content}"
+    #                 com o id {ctx.author.id}""")
+    embed = discord.Embed(
+        description=f"vai dar oi na cadeia {ctx.author}:thumbsup:",
+        color=discord.Color.green()
+    )
+    await ctx.send(embed=embed)
     
 # -----
 

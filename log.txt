@@ -41,3 +41,12 @@
 [2025-08-26 21:50:09] Usuario desconectado sem registro de entrada [591700426521575424]
 [2025-08-26 21:50:11] Usuario desconectado sem registro de entrada [591700426521575424]
 [2025-08-26 21:50:11] Usuario desconectado sem registro de entrada [591700426521575424]
+[2025-08-27 14:36:16] Usuario desconectado sem registro de entrada [946590240800374815]
+[2025-08-27 14:37:05] Usuario desconectado sem registro de entrada [946590240800374815]
+[2025-08-27 15:07:24] Usuario desconectado sem registro de entrada [946590240800374815]
+[2025-08-27 15:07:25] Usuario desconectado sem registro de entrada [946590240800374815]
+[2025-08-27 15:07:26] Usuario desconectado sem registro de entrada [946590240800374815]
+[2025-08-27 16:01:39] [946590240800374815] desconectou-se sem registro
+[2025-08-27 16:05:48] Erro ao apagar mesagem id=1410338552780292107, erro=object TextChannel can't be used in 'await' expression
+[2025-08-27 16:06:26] [423547455263604736] desconectou-se sem registro
+[2025-08-27 16:10:51] [377559298890268684] desconectou-se sem registro
