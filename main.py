@@ -22,23 +22,20 @@ async def on_voice_state_update(member, before, after):
 
     async with lock:
         canal_pontos = await client.fetch_channel(clientImplements.CANAL_PONTOS_ID)
+
+
         if before.channel is None and after.channel is not None:
-            # 
             msg = await canal_pontos.send(embed=embedsGenerator.join(member), silent=True)
-            user_connected(id_user=member.id, id_message=msg.id)
-            # 
+            response = user_connected(id_user=member.id, id_message=msg.id)
+            if response["valido"] is False:
+                await clientImplements.delete_message(client, response["id_msg"])
+
         elif before.channel is not None and after.channel is None:
-            # 
-            delete_message_id = user_desconected(id_user=member.id)
-            if delete_message_id is None:
-                await canal_pontos.send(embed=embedsGenerator.exit(member), silent=True)
+            response = user_desconected(id_user=member.id)
+            if response["valido"] is True:
+                await canal_pontos.send(embed=embedsGenerator.exit(member, response["duracao"]), silent=True)
             else:
-                try:
-                    channel = client.get_channel(clientImplements.CANAL_PONTOS_ID)
-                    delete_message = await channel.fetch_message(delete_message_id)
-                    await delete_message.delete()
-                except Exception as er:
-                    log(f"Erro ao apagar mesagem id={delete_message_id}, erro={er}")
+                await clientImplements.delete_message(client=client, msg_id=response["id_msg"])
 # ------------------------------------------------------
 
 

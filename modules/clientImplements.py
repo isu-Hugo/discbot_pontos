@@ -3,6 +3,7 @@ from discord.ext import commands
 import os
 from dotenv import load_dotenv
 from modules import db
+from modules.log import log
 
 
 # Carregamento de variaveis de ambiente
@@ -66,3 +67,11 @@ async def voice_update(user_id:int, acao:bool, message_id=None, client=None):
     elif acao is False:
         print(f"o usuario com o id {user_id} se desconectou")
         return await db.user_desconected(id_user=user_id, client=client)
+
+async def delete_message(client, msg_id):
+    try:
+        channel = client.get_channel(CANAL_PONTOS_ID)
+        delete_message = await channel.fetch_message(msg_id)
+        await delete_message.delete()
+    except Exception as er:
+        log(f"Erro ao apagar mesagem id={msg_id}, erro={er}")
