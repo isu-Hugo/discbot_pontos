@@ -19,18 +19,22 @@
 
 # from datetime import timedelta, datetime
 
-duracao = 5459
+# duracao = 5459
 
 # segundos = duracao % 60
 # minutos = (duracao % 60) // 60
 # horas = duracao // 3600
 
-horas = (duracao // 3600)
-minutos = (duracao % 3600) // 60
-segundos = (duracao % 60)
+# horas = (duracao // 3600)
+# minutos = (duracao % 3600) // 60
+# segundos = (duracao % 60)
 
-print(f"H:{horas} M:{minutos} S:{segundos}")
+# print(f"H:{horas} M:{minutos} S:{segundos}")
 
+medalhas = [":first_place:", ":second_place:", ":third_place:", ":medal:"]
+
+for i, m in enumerate(medalhas):
+    print(f"{i} - {m}")
 
 
 # print("Minutos", minutos)

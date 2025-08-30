@@ -27,6 +27,25 @@ def user_relatorio(username, perma):
     )
     return embed
 
+def rank(users:dict):
+    medalhas = [":first_place:", ":second_place:", ":third_place:", ":medal:"]
+    rankin = "**RANKING DO SERVER**\n"
+    for i, user in enumerate(users):
+        tmp = ""
+        if i<=2:
+            tmp = medalhas[i]
+        else:
+            tmp = medalhas[3]
+
+        rankin += f"{tmp} **{user.get('name')}** - `{perma_formatter(user.get('perma'))}h`\n"
+    
+    embed = discord.Embed(
+        description= rankin,
+        color= discord.Color.blue()
+    )
+
+    return embed
+
 
 def current_time():
     return datetime.now().strftime('%H:%M:%S')
@@ -36,9 +55,8 @@ def perma_formatter(perma) -> str:
     minutos = (perma % 3600) // 60
     segundos = (perma % 60)
 
-    str_time = ""
-    if horas>0:
-        str_time += f"{int(horas)}:"
+    # str_time = ""
+    # if horas>0:
+    #     str_time += f"{int(horas)}:"
     
-    str_time += f"{int(minutos)}:{int(segundos)}"
-    return str_time
+    return f"{int(horas):02d}:{int(minutos):02d}:{int(segundos):02d}"

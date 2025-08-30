@@ -60,8 +60,12 @@ async def relatorio(ctx):
     
     # await ctx.send(ctx.author.id)
 
-
-
+@client.command()
+async def rank(ctx):
+    embed = await clientImplements.relatorio_rank_builder(client)
+    await ctx.send(embed=embed, silent=True)
+    
+    
 
 
 # ------------------------------------------------------

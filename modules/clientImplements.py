@@ -59,6 +59,21 @@ def relatorio_duracao_builder(member_id, member_name):
     embed = embedsGenerator.user_relatorio(member_name, tempo)
     return embed
 
+async def relatorio_rank_builder(client):
+    data = db.relatorio_rank()
+    newData = []
+    for i in data:
+        name = await getNameById(client, i.get('id_user'))
+        newData.append({
+            "name": name,
+            "perma": i.get('perma')
+        })
+
+    return embedsGenerator.rank(newData)
+
+
+    
+
 # ------------------------------------------------------
 
 # Funções auxiliares
@@ -78,3 +93,9 @@ async def delete_message(client, msg_id):
         await delete_message.delete()
     except Exception as er:
         log(f"Erro ao apagar mesagem id={msg_id}, erro={er}")
+
+async def getNameById(client, id):
+    user = client.get_user(id)
+    if user is None:
+        user = await client.fetch_user(id)
+    return user.name

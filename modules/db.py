@@ -101,3 +101,17 @@ def user_relatorio_permanencia(id_user):
     if value:
         return value
     return 0
+
+def relatorio_rank():
+    QUERY = "SELECT id_usuario, sum(permanencia) AS perm FROM calls GROUP BY id_usuario ORDER BY perm DESC LIMIT 5"
+    req = secure_execute(query=QUERY, return_value=True)
+    # print(req)
+    r = []
+    for response in req:
+        r.append({
+            "id_user": response[0],
+            "perma": response[1]
+        })
+    
+    return r
+
