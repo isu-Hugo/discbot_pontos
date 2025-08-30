@@ -18,6 +18,16 @@ def exit(username, perma):
     )
     return embed
 
+def user_relatorio(username, perma):
+    str_time = perma_formatter(perma)
+
+    embed = discord.Embed(
+        description= f"**FOLHA PONTO**\nOlá, :bust_in_silhouette: {username}\nVocê possui `{str_time}h` em calls",
+        color= discord.Color.yellow()
+    )
+    return embed
+
+
 def current_time():
     return datetime.now().strftime('%H:%M:%S')
 

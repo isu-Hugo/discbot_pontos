@@ -18,6 +18,9 @@ async def on_ready():
 
 @client.event
 async def on_voice_state_update(member, before, after):
+    if member.bot:
+        print(f"bot desconsiderado: {member}")
+        return
     lock = locks.setdefault(member.id, asyncio.Lock())
 
     async with lock:
@@ -51,7 +54,11 @@ async def oi(ctx):
 
 @client.command()
 async def relatorio(ctx):
-    await clientImplements.relatorio(ctx)
+
+    embed = clientImplements.relatorio_duracao_builder(member_id=ctx.author.id, member_name=ctx.author)
+    await ctx.send(embed=embed, silent=True)
+    
+    # await ctx.send(ctx.author.id)
 
 
 

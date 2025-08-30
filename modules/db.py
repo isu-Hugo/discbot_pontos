@@ -91,3 +91,13 @@ def user_desconected(id_user):
     else:
         log(f"[{id_user}] desconectou-se sem registro")
     return send_message
+
+def user_relatorio_permanencia(id_user):
+    QUERY = "SELECT SUM(permanencia) FROM calls WHERE id_usuario=?"
+    req = secure_execute(query=QUERY, values=[id_user], return_value=True)
+    
+    value = req[0][0]
+    
+    if value:
+        return value
+    return 0

@@ -4,6 +4,7 @@ import os
 from dotenv import load_dotenv
 from modules import db
 from modules.log import log
+from modules import embedsGenerator
 
 
 # Carregamento de variaveis de ambiente
@@ -53,8 +54,10 @@ async def oi(ctx):
     
 # -----
 
-async def relatorio(ctx):
-    await ctx.send(f"não existe isso ai ainda não {ctx.author.display_name}")
+def relatorio_duracao_builder(member_id, member_name):
+    tempo =  db.user_relatorio_permanencia(member_id)
+    embed = embedsGenerator.user_relatorio(member_name, tempo)
+    return embed
 
 # ------------------------------------------------------
 
