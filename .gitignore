@@ -1,3 +1,6 @@
 .env
 __pycache__
 venv
+log.txt
+database.db
+teste.py
