@@ -38,7 +38,8 @@ async def on_voice_state_update(member, before, after):
             if response["valido"] is True:
                 await canal_pontos.send(embed=embedsGenerator.exit(member, response["duracao"]), silent=True)
             else:
-                await clientImplements.delete_message(client=client, msg_id=response["id_msg"])
+                if response["id_msg"] is not None:
+                    await clientImplements.delete_message(client=client, msg_id=response["id_msg"])
 # ------------------------------------------------------
 
 

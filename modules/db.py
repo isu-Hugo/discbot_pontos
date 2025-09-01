@@ -90,6 +90,7 @@ def user_desconected(id_user):
         secure_execute(QUERY_DELETE, values=[id_user])
     else:
         log(f"[{id_user}] desconectou-se sem registro")
+        send_message["valido"] = False
     return send_message
 
 def user_relatorio_permanencia(id_user):
